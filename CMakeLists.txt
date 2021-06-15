@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.10)
 
-project (SAPER)
+project (STATKI)
 #####################################################################
 # Tu wymień wszystkie pliki .cpp, z których składa się projekt (rozdzielone spacją)
 set ( SOURCES main.cpp ShipBoard.cpp )
