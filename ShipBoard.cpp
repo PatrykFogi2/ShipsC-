@@ -48,3 +48,34 @@ int i = 0;
 
 
 
+int ShipBoard::getBoardWidth() const {
+  return width;
+}
+
+int ShipBoard::getBoardHeight() const {
+  return height;
+}
+
+bool ShipBoard::IsInside(int row, int col) {
+    if(row>=height || col>=width || row<0 || col <0)
+    return false;
+  return true;
+}
+
+
+bool ShipBoard::hasShip(int row, int col) {
+  if(board[row][col].hasShip==1)
+    return 1; 
+  return 0;
+}
+bool ShipBoard::hasShot(int row, int col) {
+   if(board[row][col].hasShot==1)
+    return 1; 
+  return 0;
+}
+
+
+
+void ShipBoard::SetShip(int row, int col, enum Direct, int i) {
+
+}
