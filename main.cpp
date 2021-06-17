@@ -5,7 +5,14 @@ int main() {
   std::cout << "Hello World!\n";
  ShipBoard plansza;
  plansza.display();
- cout <<plansza.IsInside(11,0);
+ 
+//  plansza.UstawStatki(0, 0, 2, DOWN);
+ //  plansza.UstawStatki(1, 1, 2, RIGHT);
+    plansza.UstawStatki(8, 0, 5, DOWN);
+ plansza.display();
+cout << plansza.CheckFieldsAround(0, 1);
+
+  
 //   cout << plansza.getBoardWidth();
 //   cout << plansza.getBoardHeight();
 
