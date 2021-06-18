@@ -8,7 +8,9 @@ int main() {
  
 //  plansza.UstawStatki(0, 0, 2, DOWN);
  //  plansza.UstawStatki(1, 1, 2, RIGHT);
-    plansza.UstawStatki(8, 0, 5, DOWN);
+    plansza.UstawStatki(8, 0, 2, RIGHT);
+    plansza.UstawStatki(2, 0, 5, DOWN);
+    
  plansza.display();
 cout << plansza.CheckFieldsAround(0, 1);
 

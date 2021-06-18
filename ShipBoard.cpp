@@ -174,57 +174,63 @@ void ShipBoard::UstawStatki(int row, int col, int TypeShip, Direct kierunek) {
 // pojedyczny
 if(TypeShip == 1 && CheckFieldsAround(row,col) == 8 ) {
     board[row][col].hasShip = 1; }
-    else 
-    board[row][col].hasShip = 0; 
+    
 //podwojny
-if(TypeShip==2 && CheckFieldsAround(row,col) == 8 ) {
+// if(TypeShip==2 && CheckFieldsAround(row,col) == 8 ) {
+//     board[row][col].hasShip = 1;
+    if(TypeShip==2 && CheckFieldsAround(row,col) == 8 && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8) {
     board[row][col].hasShip = 1;
-    if(kierunek == RIGHT && CheckFieldsAround(row, col+1) == 7) {
     board[row][col+1].hasShip = 1; }
     
-    if(kierunek == DOWN && CheckFieldsAround(row+1, col) == 7) {
+    if(TypeShip==2 && CheckFieldsAround(row,col) == 8 &&kierunek == DOWN && CheckFieldsAround(row+1, col) == 8) {
+    board[row][col].hasShip = 1;
     board[row+1][col].hasShip = 1; }
     
-}
-else 
-    board[row][col].hasShip = 0;   
+// }
+// else 
+//     board[row][col].hasShip = 0;   
 
-if(TypeShip==3 && CheckFieldsAround(row,col) ==8  ) {
-    board[row][col].hasShip = 1;
-   if(kierunek == RIGHT && CheckFieldsAround(row, col+1) == 6 && CheckFieldsAround(row, col+2)==7 ) {
+// if(TypeShip==3 && CheckFieldsAround(row,col) ==8  ) {
+//     board[row][col].hasShip = 1;
+   if(TypeShip==3 && CheckFieldsAround(row,col) ==8  && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8 && CheckFieldsAround(row, col+2)==8 ) {
+   board[row][col].hasShip = 1;
     board[row][col+1].hasShip = 1;
     board[row][col+2].hasShip = 1; }
-   if(kierunek == DOWN && CheckFieldsAround(row+1, col) == 6 && CheckFieldsAround(row+2, col)==7 ){
+   if( TypeShip==3 && CheckFieldsAround(row,col) ==8 && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 ){
+    board[row][col].hasShip = 1;   
     board[row+1][col].hasShip = 1;  
-    board[row+2][col].hasShip = 1; } }
+    board[row+2][col].hasShip = 1; } 
 
 
 
 
-if(TypeShip==4 && CheckFieldsAround(row,col) ==8  ) {
+
+   if(TypeShip==4 && CheckFieldsAround(row,col) ==8  && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8 && CheckFieldsAround(row, col+2)==8 && CheckFieldsAround(row, col+3)==8 ) {
     board[row][col].hasShip = 1;
-   if(kierunek == RIGHT && CheckFieldsAround(row, col+1) == 7 && CheckFieldsAround(row, col+2)==8 && CheckFieldsAround(row, col+3)==8 ) {
     board[row][col+1].hasShip = 1;
     board[row][col+2].hasShip = 1; 
     board[row][col+3].hasShip = 1;}
-   if(kierunek == DOWN && CheckFieldsAround(row+1, col) == 7 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8){
+   if(TypeShip==4 && CheckFieldsAround(row,col) ==8  && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8){
+    board[row][col].hasShip = 1;
     board[row+1][col].hasShip = 1;  
     board[row+2][col].hasShip = 1;
-    board[row+3][col].hasShip = 1; } }
+    board[row+3][col].hasShip = 1; } 
     
 
-if(TypeShip==5 && CheckFieldsAround(row,col) ==8  ) {
+// if(TypeShip==5 && CheckFieldsAround(row,col) ==8  ) {
+//     board[row][col].hasShip = 1;
+   if(TypeShip==5 && CheckFieldsAround(row,col) ==8 && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8 && CheckFieldsAround(row, col+2)==8 && CheckFieldsAround(row, col+3)==8  && CheckFieldsAround(row, col+4)==8) {
     board[row][col].hasShip = 1;
-   if(kierunek == RIGHT && CheckFieldsAround(row, col+1) == 7 && CheckFieldsAround(row, col+2)==8 && CheckFieldsAround(row, col+3)==8  && CheckFieldsAround(row, col+4)==8) {
     board[row][col+1].hasShip = 1;
     board[row][col+2].hasShip = 1; 
     board[row][col+3].hasShip = 1;
     board[row][col+4].hasShip = 1;}
-   if(kierunek == DOWN && CheckFieldsAround(row+1, col) == 7 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8 && CheckFieldsAround(row+4, col)==8) {
+   if(TypeShip==5 && CheckFieldsAround(row,col) ==8 && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8 && CheckFieldsAround(row+4, col)==8) {
+    board[row][col].hasShip = 1;
     board[row+1][col].hasShip = 1;  
     board[row+2][col].hasShip = 1;
     board[row+3][col].hasShip = 1;
-    board[row+4][col].hasShip = 1; } }
+    board[row+4][col].hasShip = 1; } 
 
 
 
