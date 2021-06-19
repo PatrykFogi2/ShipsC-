@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 3.10)
 project (STATKI)
 #####################################################################
 # Tu wymień wszystkie pliki .cpp, z których składa się projekt (rozdzielone spacją)
-set ( SOURCES main.cpp ShipBoard.cpp )
+set ( SOURCES main.cpp ShipBoard.cpp Computer.cpp SetShips.cpp )
 #####################################################################
 # Dalej na razie nic nie trzeba zmieniać
 # przy każdej kompilacji używaj:

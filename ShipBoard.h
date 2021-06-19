@@ -19,15 +19,16 @@ bool BookSpace;
 class ShipBoard {
 int width = 10;
 int height = 10;
-int Action = 0;
-int HitShip = 0;
+// int Action = 0;
+// int HitShip = 0;
 
 
 public:
   ShipBoard();
+  virtual ~ShipBoard(){}
 Direct direct;
 GameState state;
-Field board[10][10];
+Field board[12][12];
 bool hasShip(int row, int col); // jest
 bool hasShot(int row, int col); // jest
 bool BookSpace(int row,int col);
@@ -36,14 +37,15 @@ void Shot(int row, int col) ; // jest
 void display() const; // jest
 void SetShip(int row, int col, int TypeShip, Direct kierunek);
 int CheckFieldsAround(int row, int col) ;
-GameState getGameState() const; // jest
+
 char getFieldInfo(int row, int col) const; // jest
 int getBoardWidth() const;  // jest
 int getBoardHeight() const;  // jest
 void Random(); 
 bool IsInside(int row, int col); // jest
 bool Sunk(int row,int col);
-void UstawStatki(int row, int col, int TypeShip, Direct kierunek);
+int UstawStatki(int row, int col, int TypeShip, Direct kierunek);
+void SETSHOT (int row, int col);
 
 
 

@@ -6,8 +6,8 @@ ShipBoard::ShipBoard () {
   this -> width = width;
   this -> height = height;
      //liczba pól statkow = 36
-     this -> Action = Action; 
-     this -> HitShip = HitShip;
+    //  this -> Action = Action; 
+    //  this -> HitShip = HitShip;
      for (int row=0; row<height; row++) 
     {
       for (int column=0; column<width; column++)
@@ -15,7 +15,7 @@ ShipBoard::ShipBoard () {
            board[row][column] = {false,false,false};
         }
     }
-  
+ 
 }
 
 
@@ -97,7 +97,8 @@ while ( a < TypeShip) {
  
     board[row+a][col].hasShip = 1;
     a++;
-    Action ++; }
+    // Action ++; 
+    }
 
 
 }
@@ -109,7 +110,8 @@ if (IsInside(row, col) == 1 && kierunek ==RIGHT ) {
 while ( a < TypeShip) {
     board[row][col+a].hasShip = 1;
     a++; 
-    Action ++;}
+    // Action ++;
+    }
 
 
 }
@@ -118,16 +120,6 @@ return;
 }
 
 
-// void ShipBoard::Direction() {
-//   if (direct == LEFT)
-     
-//   if (direct == RIGHT)
-
-//   if (direct == UP)
-
-//   if (direct == DOWN)
-  
-// }
 
 
 
@@ -161,45 +153,44 @@ char ShipBoard::getFieldInfo(int row, int col) const {
     
 // }
 
-GameState ShipBoard::getGameState() const {
-    if(Action == 36)
-    return FINISHED_WIN;
-    else 
-    return RUNNING;
-}
+// GameState ShipBoard::getGameState() const {
+//     if(Action == 36)
+//     return FINISHED_WIN;
+//     else 
+//     return RUNNING;
+// }
 
 
-
-void ShipBoard::UstawStatki(int row, int col, int TypeShip, Direct kierunek) {
-// pojedyczny
+int ShipBoard::UstawStatki(int row, int col, int TypeShip, Direct kierunek) {
+// pojedyczny 
+int g =0;
 if(TypeShip == 1 && CheckFieldsAround(row,col) == 8 ) {
-    board[row][col].hasShip = 1; }
+    board[row][col].hasShip = 1; 
+    g=1; return g; }
     
 //podwojny
-// if(TypeShip==2 && CheckFieldsAround(row,col) == 8 ) {
-//     board[row][col].hasShip = 1;
+
     if(TypeShip==2 && CheckFieldsAround(row,col) == 8 && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8) {
     board[row][col].hasShip = 1;
-    board[row][col+1].hasShip = 1; }
+    board[row][col+1].hasShip = 1; 
+    g=1;  return g;}
     
     if(TypeShip==2 && CheckFieldsAround(row,col) == 8 &&kierunek == DOWN && CheckFieldsAround(row+1, col) == 8) {
     board[row][col].hasShip = 1;
-    board[row+1][col].hasShip = 1; }
+    board[row+1][col].hasShip = 1; 
+    g=1;  return g;}
     
-// }
-// else 
-//     board[row][col].hasShip = 0;   
 
-// if(TypeShip==3 && CheckFieldsAround(row,col) ==8  ) {
-//     board[row][col].hasShip = 1;
    if(TypeShip==3 && CheckFieldsAround(row,col) ==8  && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8 && CheckFieldsAround(row, col+2)==8 ) {
    board[row][col].hasShip = 1;
     board[row][col+1].hasShip = 1;
-    board[row][col+2].hasShip = 1; }
+    board[row][col+2].hasShip = 1; 
+    g=1;  return g;}
    if( TypeShip==3 && CheckFieldsAround(row,col) ==8 && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 ){
     board[row][col].hasShip = 1;   
     board[row+1][col].hasShip = 1;  
-    board[row+2][col].hasShip = 1; } 
+    board[row+2][col].hasShip = 1;
+    g=1; return g; } 
 
 
 
@@ -209,35 +200,47 @@ if(TypeShip == 1 && CheckFieldsAround(row,col) == 8 ) {
     board[row][col].hasShip = 1;
     board[row][col+1].hasShip = 1;
     board[row][col+2].hasShip = 1; 
-    board[row][col+3].hasShip = 1;}
+    board[row][col+3].hasShip = 1;
+    g=1; return g;}
    if(TypeShip==4 && CheckFieldsAround(row,col) ==8  && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8){
     board[row][col].hasShip = 1;
     board[row+1][col].hasShip = 1;  
     board[row+2][col].hasShip = 1;
-    board[row+3][col].hasShip = 1; } 
+    board[row+3][col].hasShip = 1;
+    g=1; return g; } 
     
 
-// if(TypeShip==5 && CheckFieldsAround(row,col) ==8  ) {
-//     board[row][col].hasShip = 1;
+
    if(TypeShip==5 && CheckFieldsAround(row,col) ==8 && kierunek == RIGHT && CheckFieldsAround(row, col+1) == 8 && CheckFieldsAround(row, col+2)==8 && CheckFieldsAround(row, col+3)==8  && CheckFieldsAround(row, col+4)==8) {
     board[row][col].hasShip = 1;
     board[row][col+1].hasShip = 1;
     board[row][col+2].hasShip = 1; 
     board[row][col+3].hasShip = 1;
-    board[row][col+4].hasShip = 1;}
+    board[row][col+4].hasShip = 1;
+    
+    g=1;
+    
+    return g;}
    if(TypeShip==5 && CheckFieldsAround(row,col) ==8 && kierunek == DOWN && CheckFieldsAround(row+1, col) == 8 && CheckFieldsAround(row+2, col)==8 && CheckFieldsAround(row+3, col)==8 && CheckFieldsAround(row+4, col)==8) {
     board[row][col].hasShip = 1;
     board[row+1][col].hasShip = 1;  
     board[row+2][col].hasShip = 1;
     board[row+3][col].hasShip = 1;
-    board[row+4][col].hasShip = 1; } 
+    board[row+4][col].hasShip = 1; 
+    g=1;
+    
+
+    return g;} 
 
 
 
-
+  return g;
 
 }
 
+void ShipBoard::SETSHOT(int row, int col) {
+    board[row][col].hasShot =1 ;
+}
 
 
 int ShipBoard::CheckFieldsAround(int row, int col)  
@@ -274,3 +277,8 @@ int ShipBoard::CheckFieldsAround(int row, int col)
     }
     return i; 
 }
+
+
+
+
+

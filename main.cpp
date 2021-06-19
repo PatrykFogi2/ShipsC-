@@ -1,22 +1,20 @@
 #include <iostream>
 #include "ShipBoard.h"
+#include "Computer.h"
+#include "SetShips.h"
 using namespace std;
 int main() {
   std::cout << "Hello World!\n";
  ShipBoard plansza;
- plansza.display();
- 
-//  plansza.UstawStatki(0, 0, 2, DOWN);
- //  plansza.UstawStatki(1, 1, 2, RIGHT);
-    plansza.UstawStatki(8, 0, 2, RIGHT);
-    plansza.UstawStatki(2, 0, 5, DOWN);
-    
- plansza.display();
-cout << plansza.CheckFieldsAround(0, 1);
 
-  
-//   cout << plansza.getBoardWidth();
-//   cout << plansza.getBoardHeight();
+ Computer Testowy(plansza);
+ SetShips gierka(plansza,Testowy);
+ gierka.Play();
+//  Testowy.ComputerDisplay();
+//  Testowy.GenerateShip(2); 
+//   Testowy.GenerateShip(3); 
+//  Testowy.GenerateShip(4); 
+//  Testowy.ComputerDisplay();
 
 
 
