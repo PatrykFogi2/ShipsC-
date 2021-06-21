@@ -34,7 +34,7 @@ int main()
                 window.close();
         }
         
-        window.clear();
+        // window.clear();
         while(AI.getGameState()==RUNNING) {
          view.draw(window);
         window.display(); 
@@ -56,29 +56,34 @@ int i = 0;
      int row; int col;
  cout <<"Podaj koordynaty do strzału" << endl; 
  cin >> row >> col ;
-//  AI.GetShot(row,col);
+
  if (AI.GetShot(row,col) == 0) {
  cout <<" Pudło" << endl;
  cout <<"Plansza Komputer" << endl;
-//  AI.ComputerDisplay();
+
  i =1; }
  else {  
  cout << "Trafiony" << endl;
 cout <<"Plansza Komputer" << endl;
-// AI.ComputerDisplay(); }
+
 
 if (AI.getGameState() == FINISHED_WIN ) {
   cout << "Wygrales" << endl; 
+  i = 0;
   }
 
 if(AI.getGameState() == FINISHED_LOSS) {
-  cout << "Przegrales" << endl; 
+  cout << "Przegrales" << endl; i = 0;
   }
- }
-
+ }       view.draw(window);
+        window.display(); 
+        
 
         }
         AI.Shot(AI.Random(), AI.Random());
+          view.draw(window);
+         window.display(); 
+        window.clear();
     }
 
   return 0;

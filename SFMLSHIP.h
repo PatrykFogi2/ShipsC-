@@ -22,6 +22,7 @@ Computer &AI;
      RectangleShape zakryte;
      RectangleShape odkryte;
      RectangleShape strzal;
+     RectangleShape Trafiony;
     Font font;
     Text txt;
     Text tekst;
@@ -34,7 +35,7 @@ Computer &AI;
      RectangleShape linia_pion2;
      
 public:
-	//  MSSFMLView(ShipBoard &plansza, Computer &AI);
+	
     MSSFMLView(ShipBoard &gracz, Computer&komp);
 	void draw (sf::RenderWindow & win);
 };

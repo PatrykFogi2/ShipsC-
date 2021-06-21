@@ -29,6 +29,10 @@ MSSFMLView::MSSFMLView(ShipBoard &gracz, Computer &komp) :Board(gracz),AI( komp)
     
     linia_pion2 = RectangleShape(Vector2f(1,30));
     linia_pion2.setFillColor(Color(128,0,0));
+
+
+    Trafiony = RectangleShape(Vector2f(30,30));
+    Trafiony.setFillColor(Color(0,0,128));
 }
 
 
@@ -47,8 +51,7 @@ void MSSFMLView::draw (sf::RenderWindow &win) {
    for (int row=0; row < height; row++) {
       for(int col =0; col<width; col++) {
   int a,b; 
-    // a = szerokosc/2 + col * 30 - (height*30/2) ;
-    // b = wysokosc/2 + row * 30 - (width*30/2);
+
       a = szerokosc/10 + col * 30 ;
       b = wysokosc/10 + row * 30 ;
          //player
@@ -68,6 +71,12 @@ void MSSFMLView::draw (sf::RenderWindow &win) {
            win.draw(linia_pion2);
            win.draw(linia_poz2);
 
+   
+
+   
+   
+   
+   
     if(Board.hasShip(row,col) == 1) {
         zakryte.setPosition(a,b);
         win.draw(zakryte);
@@ -83,24 +92,21 @@ if( AI.hasShip( row, col) == 1 ) {
 if(Board.hasShot(row,col) == 1) {
         strzal.setPosition(a,b);
         win.draw(strzal);
+          if(Board.hasShip(row,col) == 1 && Board.hasShot(row,col) ==1 ) {
+        Trafiony.setPosition(a,b);
+        win.draw(Trafiony);
+    }
     }
 
 
     if(AI.hasShot(row,col) == 1) {
         strzal.setPosition(a+360,b);
         win.draw(strzal);
+         if( AI.hasShip( row, col) == 1 && AI.hasShot( row,col) == 1 ) {
+      Trafiony.setPosition(a+360,b);
+        win.draw(Trafiony); }
     }
 
-
-    if(Board.hasShip(row,col) == 1 && Board.hasShot(row,col) ==1 ) {
-        strzal.setPosition(a,b);
-        win.draw(strzal);
-    }
-
-
-    if( AI.hasShip( row, col) == 1 && AI.hasShot( row,col) == 1 ) {
-      strzal.setPosition(a+360,b);
-        win.draw(strzal); }
 
 
 
@@ -115,38 +121,6 @@ if(Board.hasShot(row,col) == 1) {
 
 
 
-// if (AI.getGameState() == FINISHED_WIN ) {
-//   cout << "Wygrales" << endl; 
-//   return;}
 
-// if(AI.getGameState() == FINISHED_LOSS) {
-//   cout << "Przegrales" << endl; 
-//   return;} 
-
-// int i = 0;
-
-//  while(i == 0 ) {
-//      int row; int col;
-//  cout <<"Podaj koordynaty do strzału" << endl; 
-//  cin >> row >> col ;
-// //  AI.GetShot(row,col);
-//  if (AI.GetShot(row,col) == 0) {
-//  cout <<" Pudło" << endl;
-//  cout <<"Plansza Komputer" << endl;
-// //  AI.ComputerDisplay();
-//  i =1; }
-//  else {  
-//  cout << "Trafiony" << endl;
-// cout <<"Plansza Komputer" << endl;
-// // AI.ComputerDisplay(); }
-
-// if (AI.getGameState() == FINISHED_WIN ) {
-//   cout << "Wygrales" << endl; 
-//   return;}
-
-// if(AI.getGameState() == FINISHED_LOSS) {
-//   cout << "Przegrales" << endl; 
-//   return;}
-//  }
 
   }

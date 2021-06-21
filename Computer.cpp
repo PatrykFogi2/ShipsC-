@@ -119,12 +119,7 @@ if(TypeShip == 1 && ComputerCheckFieldsAround(row,col) == 8 ) {
     ComputerBoard[row+1][col].hasShip = 1;
      int g =1; return g; }
     
-// }
-// else 
-//     board[row][col].hasShip = 0;   
 
-// if(TypeShip==3 && CheckFieldsAround(row,col) ==8  ) {
-//     board[row][col].hasShip = 1;
    if(TypeShip==3 && ComputerCheckFieldsAround(row,col) ==8  && kierunek == RIGHT && ComputerCheckFieldsAround(row, col+1) == 8 && ComputerCheckFieldsAround(row, col+2)==8 ) {
    ComputerBoard[row][col].hasShip = 1;
     ComputerBoard[row][col+1].hasShip = 1;
@@ -154,8 +149,7 @@ if(TypeShip == 1 && ComputerCheckFieldsAround(row,col) == 8 ) {
    int g =1; return g;} 
     
 
-// if(TypeShip==5 && CheckFieldsAround(row,col) ==8  ) {
-//     board[row][col].hasShip = 1;
+
    if(TypeShip==5 && ComputerCheckFieldsAround(row,col) ==8 && kierunek == RIGHT && ComputerCheckFieldsAround(row, col+1) == 8 && ComputerCheckFieldsAround(row, col+2)==8 && ComputerCheckFieldsAround(row, col+3)==8  && ComputerCheckFieldsAround(row, col+4)==8) {
  ComputerBoard[row][col].hasShip = 1;
    ComputerBoard[row][col+1].hasShip = 1;

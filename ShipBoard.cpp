@@ -85,39 +85,7 @@ bool ShipBoard::BookSpace(int row, int col) {
 
 
 
-void ShipBoard::SetShip(int row, int col, int TypeShip,Direct kierunek) {
 
-int a = 0;
- 
-if (IsInside(row, col) == 1 && kierunek ==DOWN ) {
-
-
-
-while ( a < TypeShip) {
- 
-    board[row+a][col].hasShip = 1;
-    a++;
-    // Action ++; 
-    }
-
-
-}
-
-if (IsInside(row, col) == 1 && kierunek ==RIGHT ) {
-
-
-
-while ( a < TypeShip) {
-    board[row][col+a].hasShip = 1;
-    a++; 
-    // Action ++;
-    }
-
-
-}
-
-return;
-}
 
 
 
@@ -149,16 +117,7 @@ char ShipBoard::getFieldInfo(int row, int col) const {
 }
 
 
-// bool ShipBoard::Sunk(int row,int col) {
-    
-// }
 
-// GameState ShipBoard::getGameState() const {
-//     if(Action == 36)
-//     return FINISHED_WIN;
-//     else 
-//     return RUNNING;
-// }
 
 
 int ShipBoard::UstawStatki(int row, int col, int TypeShip, Direct kierunek) {

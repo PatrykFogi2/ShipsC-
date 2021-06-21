@@ -29,7 +29,7 @@ public:
   virtual ~ShipBoard(){}
 Direct direct;
 GameState state;
-Field board[12][12];
+Field board[13][13];
 bool hasShip(int row, int col); // jest
 bool hasShot(int row, int col); // jest
 bool BookSpace(int row,int col);
