@@ -262,3 +262,15 @@ void Computer::Zatopiony (int row, int col) {
 
 
      
+
+
+bool Computer::hasShip(int row, int col) {
+  if(ComputerBoard[row][col].hasShip==1)
+    return 1; 
+  return 0;
+}
+bool  Computer::hasShot(int row, int col) {
+   if(ComputerBoard[row][col].hasShot==1)
+    return 1; 
+  return 0;
+}

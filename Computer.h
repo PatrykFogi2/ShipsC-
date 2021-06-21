@@ -23,6 +23,8 @@ bool IsInside(int row, int col); //dziala
 bool GetShot(int row, int col);
 GameState getGameState() const; // jest
 void Zatopiony (int row, int col);
+bool hasShot(int row,int col);
+bool hasShip(int row,int col);
 };
 
 

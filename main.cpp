@@ -1,34 +1,14 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
-
+#include "ShipBoard.h"
+#include "SFMLSHIP.h"
+#include "Computer.h"
+#include "SetShips.h"
+#include <iostream>
+using namespace std;
 // to powinno być w osobnych plikach !
 
-class MinesweeperBoard
-{
 
-};
-
-class MSSFMLView
-{
-	MinesweeperBoard & board;
-public:
-	explicit MSSFMLView(MinesweeperBoard & b);
-
-	void draw (sf::RenderWindow & win);
-};
-
-MSSFMLView::MSSFMLView(MinesweeperBoard & b) : board(b) {}
-
-void MSSFMLView::draw (sf::RenderWindow & win)
-{
-	// tu robimy rysowanie planszy na podstawie zawartości "board"
-	
-	sf::RectangleShape r;
-	r.setSize ( sf::Vector2f(10, 10) ) ;
-	r.setFillColor ( sf::Color::Red );
-	r.setPosition(100,100);
-	win.draw(r);
-}
 
 
 int main()
@@ -37,8 +17,13 @@ int main()
     window.setVerticalSyncEnabled(false);
     window.setFramerateLimit(1);
 
-    MinesweeperBoard board;
-	MSSFMLView view(board);
+   ShipBoard plansza;
+   Computer AI(plansza);
+   SetShips Gierka (plansza,AI);
+   MSSFMLView view(plansza,AI);
+
+   Gierka.Playerplay();
+   Gierka.ComputerPlay();
 
     while (window.isOpen())
     {
@@ -50,9 +35,52 @@ int main()
         }
         
         window.clear();
-        view.draw(window);
-        window.display();
+        while(AI.getGameState()==RUNNING) {
+         view.draw(window);
+        window.display(); 
+
+
+
+
+        if (AI.getGameState() == FINISHED_WIN ) {
+  cout << "Wygrales" << endl; 
+  }
+
+if(AI.getGameState() == FINISHED_LOSS) {
+  cout << "Przegrales" << endl; 
+  } 
+
+int i = 0;
+
+ while(i == 0 ) {
+     int row; int col;
+ cout <<"Podaj koordynaty do strzału" << endl; 
+ cin >> row >> col ;
+//  AI.GetShot(row,col);
+ if (AI.GetShot(row,col) == 0) {
+ cout <<" Pudło" << endl;
+ cout <<"Plansza Komputer" << endl;
+//  AI.ComputerDisplay();
+ i =1; }
+ else {  
+ cout << "Trafiony" << endl;
+cout <<"Plansza Komputer" << endl;
+// AI.ComputerDisplay(); }
+
+if (AI.getGameState() == FINISHED_WIN ) {
+  cout << "Wygrales" << endl; 
+  }
+
+if(AI.getGameState() == FINISHED_LOSS) {
+  cout << "Przegrales" << endl; 
+  }
+ }
+
+
+        }
+        AI.Shot(AI.Random(), AI.Random());
     }
 
   return 0;
 } 
+}

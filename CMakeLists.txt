@@ -5,7 +5,7 @@ project (SHIPS)
 #####################################################################
 # Tu wymień wszystkie pliki .cpp, z których składa się projekt (rozdzielone spacją)
 
-set ( SOURCES main.cpp  )
+set ( SOURCES main.cpp SFMLSHIP.cpp Computer.cpp ShipBoard.cpp SetShips.cpp)
 
 #####################################################################
 
