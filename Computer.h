@@ -13,7 +13,7 @@ int HitShip = 0;
 public:
   Computer(ShipBoard &board);
   Field ComputerBoard[12][12];
-void ComputerDisplay() const; //dziala
+void ComputerDisplay() ; //dziala
 void Shot(int row, int col) ; //dziala
 int Random() const; //dziala
 void GenerateShip(int TypeShip);
@@ -22,6 +22,7 @@ int ComputerCheckFieldsAround(int row, int col) ;
 bool IsInside(int row, int col); //dziala
 bool GetShot(int row, int col);
 GameState getGameState() const; // jest
+void Zatopiony (int row, int col);
 };
 
 

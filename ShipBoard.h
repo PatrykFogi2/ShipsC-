@@ -10,6 +10,7 @@ struct Field {
 bool hasShip;
 bool hasShot;
 bool BookSpace;
+bool isRevealed;
 // bool isRevealed;
 
 };

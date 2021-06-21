@@ -85,11 +85,21 @@ cout <<"Rozpoczynamy rozgrywke" << endl;
 while(AI.getGameState() == RUNNING ) {
 int i = 0;
 AI.Shot(AI.Random(), AI.Random());
+
+if (AI.getGameState() == FINISHED_WIN ) {
+  cout << "Wygrales" << endl; 
+  return;}
+
+if(AI.getGameState() == FINISHED_LOSS) {
+  cout << "Przegrales" << endl; 
+  return;}
+
+
  Board.display();
  while(i == 0 ) {
  cout <<"Podaj koordynaty do strzału" << endl; 
  cin >> row >> col ;
- AI.GetShot(row,col);
+//  AI.GetShot(row,col);
  if (AI.GetShot(row,col) == 0) {
  cout <<" Pudło" << endl;
  cout <<"Plansza Komputer" << endl;
@@ -99,11 +109,18 @@ AI.Shot(AI.Random(), AI.Random());
  cout << "Trafiony" << endl;
 cout <<"Plansza Komputer" << endl;
 AI.ComputerDisplay(); }
+
+if (AI.getGameState() == FINISHED_WIN ) {
+  cout << "Wygrales" << endl; 
+  return;}
+
+if(AI.getGameState() == FINISHED_LOSS) {
+  cout << "Przegrales" << endl; 
+  return;}
+
+
   }
 
-if (AI.getGameState() == FINISHED_WIN )
-  cout << "Wygrales" << endl;
-if(AI.getGameState() == FINISHED_LOSS)
-  cout << "Przegrales" << endl;
+
 }
 }

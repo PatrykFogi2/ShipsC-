@@ -22,7 +22,7 @@ Computer::Computer(ShipBoard&Board) :Board(Board) {
 }
 
 
-void Computer::ComputerDisplay() const {
+void Computer::ComputerDisplay()  {
   cout <<"  A   B   C   D   E   F   G   H   I   J"<<endl;
 int i = 0;
  for(int row=0; row<height; row++)
@@ -38,7 +38,8 @@ int i = 0;
             cout<< "B";
           else
           cout <<".]";
-       
+        //   if(ComputerBoard[row][column].hasShip ==1 && ComputerBoard[row][column].hasShot && ComputerCheckFieldsAround(row,column) == 8 )
+        //   Zatopiony(row, column);
         }
         cout <<"\n" <<endl;
     }
@@ -110,7 +111,8 @@ if(TypeShip == 1 && ComputerCheckFieldsAround(row,col) == 8 ) {
 //     board[row][col].hasShip = 1;
     if(TypeShip==2 && ComputerCheckFieldsAround(row,col) == 8 && kierunek == RIGHT && ComputerCheckFieldsAround(row, col+1) == 8) {
     ComputerBoard[row][col].hasShip = 1;
-    ComputerBoard[row][col+1].hasShip = 1; }
+    ComputerBoard[row][col+1].hasShip = 1;
+    int g =1; return g; }
     
     if(TypeShip==2 && ComputerCheckFieldsAround(row,col) == 8 &&kierunek == DOWN && ComputerCheckFieldsAround(row+1, col) == 8) {
     ComputerBoard[row][col].hasShip = 1;
@@ -223,11 +225,14 @@ bool Computer::IsInside(int row, int col) {
 
 
 bool Computer::GetShot(int row, int col) {
-ComputerBoard[row][col].hasShot = 1 ;
-  if(ComputerBoard[row][col].hasShip ==1 ) {
+
+  if(ComputerBoard[row][col].hasShip ==1 && ComputerBoard[row][col].hasShot == 0  ) {
       HitShip ++;
+      ComputerBoard[row][col].hasShot = 1 ;
+      cout <<HitShip << endl;
       return 1;
   }
+    ComputerBoard[row][col].hasShot = 1 ;
     return 0;
 
 }
@@ -242,3 +247,18 @@ GameState Computer::getGameState() const {
      return FINISHED_LOSS;
     return RUNNING;
 }
+
+
+void Computer::Zatopiony (int row, int col) {
+    
+        ComputerBoard[row+1][col+1].isRevealed = 1;
+        ComputerBoard[row-1][col-1].isRevealed = 1;
+        ComputerBoard[row+1][col].isRevealed = 1;
+        ComputerBoard[row-1][col].isRevealed = 1;
+        ComputerBoard[row][col+1].isRevealed = 1;
+        ComputerBoard[row][col-1].isRevealed = 1;
+        ComputerBoard[row-1][col+1].isRevealed = 1;
+        ComputerBoard[row+1][col-1].isRevealed = 1;  }
+
+
+     
