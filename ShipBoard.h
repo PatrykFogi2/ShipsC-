@@ -7,10 +7,10 @@ enum GameState {
   RUNNING
 };
 enum Direct {
-  UP,
+  
   DOWN,
   RIGHT,
-  LEFT
+  
 };
 
 struct Field {
