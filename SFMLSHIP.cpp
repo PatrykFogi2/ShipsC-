@@ -127,7 +127,7 @@ void MSSFMLView::draw(sf::RenderWindow & win) {
     cout << "Wygrales" << endl;
     tekst.setFont(font);
     tekst.setCharacterSize(100);
-    tekst.setPosition(150, 30);
+    tekst.setPosition(250, 400);
     tekst.setFillColor(sf::Color::Cyan);
     tekst.setString("YOU WIN");
     win.draw(tekst);
@@ -137,7 +137,7 @@ void MSSFMLView::draw(sf::RenderWindow & win) {
     cout << "Przegrales" << endl;
     tekst.setFont(font);
     tekst.setCharacterSize(100);
-    tekst.setPosition(150, 30);
+    tekst.setPosition(250, 400);
     tekst.setFillColor(sf::Color::Cyan);
     tekst.setString("PC WIN");
     win.draw(tekst);
